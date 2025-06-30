@@ -4,7 +4,7 @@ interface Iprops{
     h?:string ;
 }
 
-const ImgIcon = ({src , w="12" }:Iprops) => {
+const ImgIcon = ({src}:Iprops) => {
   return (
     <>
       <div className={`mask mask-squircle`}>

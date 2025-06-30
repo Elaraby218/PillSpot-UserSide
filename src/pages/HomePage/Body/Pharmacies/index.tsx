@@ -21,10 +21,7 @@ export default function PharmacyWithUs() {
   const products = useSelector(
     (state: RootState) => state.fetchHomeProductSlice.Products
   );
-  const cate = useSelector(
-    (state: RootState) => state.fetchHomeProductSlice.Categories
-  );
-
+  
   const photoMap = new Map();
   photoMap.set("slide1", img1);
   photoMap.set("slide2", img2);

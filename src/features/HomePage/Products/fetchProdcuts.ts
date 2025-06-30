@@ -2,16 +2,24 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import axiosInstance from "../../axiosInstance";
 
-
 interface IProduct {
   quantity: number;
   productDto: {
     productId: string;
-    subCategoryDto: null;
+    subCategoryDto: {
+      categoryDto: {
+        categoryId: string;
+        name: string;
+      };
+      subCategoryId: string;
+      name: string;
+    };
     name: string;
     description: string;
+    usageInstructions: string;
     price: number;
     imageURL: string;
+    manufacturer: string;
     createdDate: string;
   };
   pharmacyDto: {
@@ -19,11 +27,16 @@ interface IProduct {
     name: string;
     logoURL: string;
     logo: null;
-    locationDto: null;
+    locationDto: {
+      longitude: number;
+      latitude: number;
+      additionalInfo: string;
+      cityDto: null;
+    };
     contactNumber: string;
     openingTime: string;
     closingTime: string;
-    isOpen24: false;
+    isOpen24: boolean;
     daysOpen: string;
   };
 }

@@ -31,12 +31,17 @@ const NotificationDrawer = ({ iconStyle }: Iprops) => {
     <>
       <button onClick={() => setOpen(true)} className={iconColor} style={{ position: 'relative' }}>
         <IoNotificationsOutline />
-        <span
+        {
+          
+          unreadCount !== 0 && 
+          <span
           className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full text-xs min-w-[1.25em] h-[1.25em] flex items-center justify-center px-1 font-bold z-10 border-2 border-white shadow"
         >
           {unreadCount}
         </span>
+        }
       </button>
+
       <Drawer title="Notifications" onClose={() => setOpen(false)} open={open} className="rounded-tl-3xl rounded-bl-3xl">
         {/* Top actions */}
         <div className="flex items-center justify-between mb-2">

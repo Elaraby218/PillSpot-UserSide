@@ -85,7 +85,7 @@ const MainInfo = () => {
   
 
   return (
-    <div className="flex flex-col lg:flex-row  justify-center gap-5 mt-2">
+    <div className="flex flex-col xl:flex-row justify-center gap-5 mt-2 w-full px-2">
       <div
         style={{
           backgroundImage: `url('/img/5559852.jpg')`,
@@ -93,13 +93,13 @@ const MainInfo = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-10 flex-1 w-full rounded-2xl p-5"
+        className="flex flex-col 2xl:flex-row items-center justify-center gap-5 md:gap-10 w-full rounded-2xl p-4 sm:p-5 max-w-full  mx-auto xl:basis-3/4 xl:flex-[3]"
       >
         <div className="flex flex-col justify-center items-center gap-5 sm:gap-10 w-full md:w-auto">
           <img
             src={`${import.meta.env.VITE_BASE_URL}${curUser!.profilePictureUrl}`}
             alt="User Avatar"
-            className="w-40 h-40 sm:w-40 sm:h-40 md:w-60 md:h-60 rounded-full object-cover border-2 border-dashed border-white"
+            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 xl:w-60 xl:h-60 rounded-full object-cover border-2 border-dashed border-white"
           />
           {/* <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <button className="bg-[#1C8DC9] text-white p-2 rounded-2xl cursor-pointer w-full sm:w-auto btn">
@@ -111,7 +111,7 @@ const MainInfo = () => {
           </div> */}
         </div>
 
-        <div className="grid grid-cols-1 gap-5 w-full max-w-3xl p-2 sm:p-5">
+        <div className="grid grid-cols-1 gap-5 w-3xl max-w-full p-2 sm:p-5">
           {inputs.map((item, index) => (
             <div
               key={index}
@@ -141,7 +141,7 @@ const MainInfo = () => {
       </div>
 
       <div
-        className="flex flex-col items-start gap-5 flex-1 p-5 rounded-xl w-full sm:max-w-md bg-gray-50 h-120 overflow-auto"
+        className="hidden 2xl:flex flex-col items-start gap-5 p-4 sm:p-5 rounded-xl w-full max-w-full sm:max-w-md xl:max-w-lg bg-gray-50 h-auto xl:h-120 overflow-auto mx-auto xl:basis-1/4 xl:flex-[1]"
         style={{
           backgroundImage: `url('/img/5559852.jpg')`,
           backgroundRepeat: "no-repeat",
@@ -149,17 +149,19 @@ const MainInfo = () => {
           backgroundPosition: "center",
         }}
       >
-        <span className="text-2xl font-bold text-white">
+        <span className="text-xl sm:text-2xl font-bold text-white">
           Prefered Pharmacies
         </span>
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
-        <PrefaredPharmacy />
+        <div className="w-full flex flex-col gap-2">
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+          <PrefaredPharmacy />
+        </div>
       </div>
     </div>
   );

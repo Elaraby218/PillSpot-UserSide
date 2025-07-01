@@ -80,13 +80,7 @@ const UserOrderedOrders = () => {
             <OneOrderItem />
             <OneOrderItem />
             <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
-            <OneOrderItem />
+           
             
           </div>
           <div className="mt-3">

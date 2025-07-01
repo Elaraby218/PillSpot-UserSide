@@ -1,44 +1,51 @@
-
-
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 const OneOrderItem = () => {
   return (
-    <div className="flex flex-wrap md:flex-nowrap gap-5 w-full bg-gray-50 shadow-md p-3 rounded-2xl text-[#02457A] max-h-40 overflow-auto hover:scale-101 duration-300
-        hover:bg-amber-50
-    ">
-    <img
-      src={'/img/image copy 2.png'}
-      alt="image"
-      className="w-32 h-32 sm:w-40 sm:h-30 rounded-tl-2xl rounded-br-2xl object-cover"
-    />
-    <div className="flex flex-col gap-2 w-full justify-around text-center md:text-left">
-      <span className="text-xl sm:text-2xl font-bold">
-        Name Name Name Name
-      </span>
-      <span className="text-lg sm:text-xl font-bold flex items-center justify-center md:justify-start gap-3">
-        Pharmacy Pharmacy <FaExternalLinkAlt className="text-sm" />
-      </span>
-      <div className="badge badge-outline badge-info self-center md:self-start">
-        Order Date
+    <div className="bg-gray-50 shadow-md rounded-2xl overflow-hidden p-4 flex flex-col md:flex-row gap-4 hover:bg-amber-50 hover:scale-[1.01] transition duration-300 w-full">
+      {/* Product Image */}
+      <div className="flex-shrink-0 w-full sm:w-48 mx-auto md:mx-0">
+        <img
+          src="/img/image copy 2.png"
+          alt="Product"
+          className="w-full h-40 sm:h-48 object-cover rounded-xl"
+        />
       </div>
-    </div>
-    <div className="hidden md:flex divider divider-horizontal"></div>
 
-    <div className="flex flex-col justify-around items-center md:items-center w-full md:w-auto">
-      <div className="text-2xl sm:text-3xl font-bold mx-10 items-center justify-center">50$</div>
-      <div>
+      {/* Content Section */}
+      <div className="flex flex-col justify-between flex-grow gap-3 text-center md:text-left">
+        {/* Title */}
+        <h2 className="text-xl sm:text-2xl font-bold break-words">
+          Name Name
+        </h2>
+
+        {/* Pharmacy Info */}
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-base sm:text-lg">
+          <span>Pharmacy Pharmacy</span>
+          <FaExternalLinkAlt className="text-sm" />
+        </div>
+
+        {/* Order Date Badge */}
+        <div className="self-center md:self-start">
+          <span className="badge badge-outline badge-info whitespace-nowrap">
+            Order Date
+          </span>
+        </div>
+      </div>
+
+      {/* Price and Action */}
+      <div className="flex flex-col justify-between items-center md:items-end gap-2 w-full md:w-auto mt-4 md:mt-0">
+        <span className="text-xl sm:text-2xl font-bold text-[#02457A]">$50</span>
         <Link
-          to={"/"}
-          className="flex items-center justify-center gap-1 text-[#02457A]"
+          to="/"
+          className="flex items-center gap-1 text-[#02457A] hover:underline"
         >
           View Product <FaExternalLinkAlt />
         </Link>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default OneOrderItem
+export default OneOrderItem;

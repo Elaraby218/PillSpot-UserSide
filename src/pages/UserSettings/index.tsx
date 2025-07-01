@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { Flex, Layout } from 'antd';
 
 import UserSettingHeader from './Header';
 import UserSettingSider from './Sider';
 import { Outlet } from 'react-router-dom';
-
 
 const { Header, Sider, Content } = Layout;
 
@@ -34,11 +32,10 @@ const siderStyle: React.CSSProperties = {
   boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)', 
 };
 
-
 const UserSettingLayout: React.FC = () => (
-  <Flex gap="middle" wrap className='' >
+  <Flex gap="middle" wrap className=''>
     <Layout className='flex overflow-auto h-[100%]'>
-      <Sider width="4vw" style={siderStyle}>
+      <Sider width="4vw" style={siderStyle} className="hidden md:block">
         <UserSettingSider/>
       </Sider>
       <Layout>
@@ -48,6 +45,9 @@ const UserSettingLayout: React.FC = () => (
         </Content>
       </Layout>
     </Layout>
+    <div className="md:hidden">
+      <UserSettingSider/>
+    </div>
   </Flex>
 );
 

@@ -72,7 +72,7 @@ namespace PillSpot.Presentation.Controllers
         }
 
         [HttpPut("{id:Guid}")]
-        [Authorize(Roles = "SuperAdmin,Admin")]
+        [PharmacyRoleAuthorize("PharmacyOwner")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [PermissionAuthorize("UpdatePharmacy")]
         [ValidateCsrfToken]
@@ -81,6 +81,8 @@ namespace PillSpot.Presentation.Controllers
             await _service.PharmacyService.UpdatePharmacy(id, pharmacyDto, trackChanges: true);
             return NoContent();
         }
+
+
 
         [HttpDelete("{id:Guid}")]
         [Authorize(Roles = "SuperAdmin,Admin")]

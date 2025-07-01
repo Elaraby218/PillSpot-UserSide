@@ -1,5 +1,5 @@
 
-import img from "../../MainPage/images/455280085_515769004150965_1822829626503930280_n.jpg";
+
 import { Link } from "react-router-dom";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const OneOrderItem = () => {
         hover:bg-amber-50
     ">
     <img
-      src={img}
+      src={'/img/image copy 2.png'}
       alt="image"
       className="w-32 h-32 sm:w-40 sm:h-30 rounded-tl-2xl rounded-br-2xl object-cover"
     />

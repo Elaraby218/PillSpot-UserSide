@@ -1,7 +1,7 @@
 import ProductPopular from "./Product";
 import MainInfo from "./MainInfo";
 import { Link } from "react-router-dom";
-import img from './images/image copy 4.png'
+// import img from './images/image copy 4.png' // Removed since we use public path now
 
 
 const UserSettingsMain = () => {
@@ -25,10 +25,10 @@ const UserSettingsMain = () => {
         {/* "url('/src/assets/image.png')" */}
         <div
           className="w-113 mx-auto mr-0 h-90 bg-cover bg-center rounded-2xl flex flex-col items-center justify-center"
-          style={{ backgroundImage: `url(${img})` }}
+          style={{ backgroundImage: "url('/img/5559852.jpg')" }}
         >
           <img
-            src="/src/pages/UserSettings/MainPage/images/image.png"
+            src="/img/image.png"
             className="w-50 h-50 "
           />
           <div className="text-center text-white font-bold text-lg px-20">

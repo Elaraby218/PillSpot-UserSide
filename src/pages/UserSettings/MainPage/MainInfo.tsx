@@ -3,7 +3,6 @@ import PrefaredPharmacy from "./PrefaredPharmacy";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiPhone, FiUser } from "react-icons/fi";
 import { ReactNode, useEffect, useState } from "react";
-import img from "./images/image copy 5.png";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
@@ -89,7 +88,7 @@ const MainInfo = () => {
     <div className="flex flex-col lg:flex-row  justify-center gap-5 mt-2">
       <div
         style={{
-          backgroundImage: `url(${img})`,
+          backgroundImage: `url('/img/5559852.jpg')`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -100,7 +99,7 @@ const MainInfo = () => {
           <img
             src={`${import.meta.env.VITE_BASE_URL}${curUser!.profilePictureUrl}`}
             alt="User Avatar"
-            className="w-40 h-40 sm:w-40 sm:h-40 md:w-60 md:h-60 rounded-full object-cover"
+            className="w-40 h-40 sm:w-40 sm:h-40 md:w-60 md:h-60 rounded-full object-cover border-2 border-dashed border-white"
           />
           {/* <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <button className="bg-[#1C8DC9] text-white p-2 rounded-2xl cursor-pointer w-full sm:w-auto btn">
@@ -116,7 +115,7 @@ const MainInfo = () => {
           {inputs.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col gap-1 items-start text-[#02457A] font-bold w-full"
+              className="flex flex-col gap-1 items-start text-white font-bold w-full"
             >
               <label className="flex items-center text-base sm:text-lg md:text-xl font-bold gap-2">
                 {item.icon}
@@ -124,7 +123,7 @@ const MainInfo = () => {
               </label>
               <input
                 type="text"
-                className="h-8 sm:h-10 text-base sm:text-lg md:text-xl indent-2 rounded-xl border-gray-400 w-full bg-white border-0"
+                className="h-8 sm:h-10 text-base text-[#02457A] sm:text-lg md:text-xl indent-2 rounded-xl border-gray-400 w-full bg-white border-0"
                 value={UserData[item.name]}
                 name={item.name}
                 disabled
@@ -144,13 +143,13 @@ const MainInfo = () => {
       <div
         className="flex flex-col items-start gap-5 flex-1 p-5 rounded-xl w-full sm:max-w-md bg-gray-50 h-120 overflow-auto"
         style={{
-          backgroundImage: `url(${img})`,
+          backgroundImage: `url('/img/5559852.jpg')`,
           backgroundRepeat: "no-repeat",
-          backgroundSize: "zoom",
+          backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <span className="text-2xl font-bold text-[#02457A]">
+        <span className="text-2xl font-bold text-white">
           Prefered Pharmacies
         </span>
         <PrefaredPharmacy />

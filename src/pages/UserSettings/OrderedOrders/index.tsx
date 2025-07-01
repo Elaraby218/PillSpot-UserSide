@@ -13,7 +13,7 @@ const UserOrderedOrders = () => {
   const active = "bg-[#02457A] text-white";
 
   return (
-    <div className="flex flex-col w-full h-full min-h-screen my-auto">
+    <div className="flex flex-col w-full my-auto">
       <div className="flex flex-col md:flex-row w-full h-full">
         <div className="flex-1 card rounded-box grid grow place-items-center my-auto h-full px-4 py-6 md:py-0">
           <div className="flex flex-col w-full items-center justify-center gap-6 sm:gap-8 md:gap-10 ">
@@ -87,6 +87,7 @@ const UserOrderedOrders = () => {
             <OneOrderItem />
             <OneOrderItem />
             <OneOrderItem />
+            
           </div>
           <div className="mt-3">
             <Pagination align="center" defaultCurrent={1} total={50} />

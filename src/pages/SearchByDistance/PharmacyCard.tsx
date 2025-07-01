@@ -22,7 +22,7 @@ const PharmacyCard: React.FC<{ item: ProductItem }> = ({ item }) => {
       <div className="flex-1 flex flex-col gap-0.5 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
           <h3 className="text-base font-semibold text-[#02457a] truncate max-w-[120px]">{item.pharmacyDto.name}</h3>
-          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">{item.formattedDistance || item.distance?.toFixed(2) + ' km'}</span>
+          <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">{item.formattedDistance || Number(item.distance*100)?.toFixed(2) + ' km'}</span>
           <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${item.quantity > 10 ? 'bg-green-100 text-green-800' : item.quantity > 0 ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}`}>{item.quantity > 10 ? 'In Stock' : item.quantity > 0 ? 'Low Stock' : 'Out of Stock'}</span>
           {item.pharmacyDto.isOpen24 && (
             <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-green-200 text-green-900 border border-green-300">24/7</span>

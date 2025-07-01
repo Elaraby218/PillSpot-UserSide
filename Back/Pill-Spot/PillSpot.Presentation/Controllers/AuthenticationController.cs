@@ -67,7 +67,7 @@ namespace PillSpot.Presentation.Controllers
                 Secure = baseCookieOptions.Secure,
                 SameSite = baseCookieOptions.SameSite,
                 Path = baseCookieOptions.Path,
-                Expires = DateTime.UtcNow.AddMinutes(30)
+                Expires = DateTime.UtcNow.AddDays(2)
             };
             Response.Cookies.Append("accessToken", accessToken, accessCookieOptions);
 

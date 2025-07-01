@@ -12,7 +12,7 @@ namespace PillSpot.Middleware
         private readonly IConfiguration _configuration;
 
         public AutoTokenRefreshMiddleware(
-            RequestDelegate next, 
+            RequestDelegate next,
             ILogger<AutoTokenRefreshMiddleware> logger,
             IConfiguration configuration)
         {
@@ -25,9 +25,11 @@ namespace PillSpot.Middleware
         {
             try
             {
-                // Get access token from cookie (not Authorization header)
                 var accessToken = context.Request.Cookies["accessToken"];
                 var refreshToken = context.Request.Cookies["refreshToken"];
+
+                _logger.LogInformation("[AutoTokenRefresh] accessToken: {Access}", accessToken ?? "null");
+                _logger.LogInformation("[AutoTokenRefresh] refreshToken: {Refresh}", refreshToken ?? "null");
 
                 if (!string.IsNullOrEmpty(accessToken) && !string.IsNullOrEmpty(refreshToken))
                 {
@@ -35,66 +37,78 @@ namespace PillSpot.Middleware
 
                     try
                     {
-                        // Parse the access token to check expiry
                         var jwtToken = tokenHandler.ReadJwtToken(accessToken);
                         var expiry = jwtToken.ValidTo;
+                        var now = DateTime.UtcNow;
 
-                        // Check if token expires within the next 5 minutes
-                        if (expiry <= DateTime.UtcNow.AddMinutes(5))
+                        _logger.LogInformation("[AutoTokenRefresh] Access token will expire at {Expiry}, now is {Now}", expiry, now);
+
+                        if (expiry <= now.AddSeconds(20))
                         {
-                            _logger.LogInformation("Access token expires soon, attempting automatic refresh");
+                            _logger.LogInformation("[AutoTokenRefresh] Access token will expire soon (within 20 seconds), attempting refresh...");
 
-                            // Create TokenDto for refresh
                             var tokenDto = new TokenDto(accessToken, refreshToken);
-                            
-                            // Attempt to refresh the token
+
                             var newTokenDto = await serviceManager.AuthenticationService.RefreshToken(tokenDto);
 
                             if (newTokenDto != null)
                             {
-                                // Update BOTH cookies with new tokens
                                 var cookieSettings = _configuration.GetSection("CookieSettings").Get<CookieSettings>();
                                 if (cookieSettings == null)
-                                {
                                     throw new InvalidOperationException("Cookie settings are not configured");
-                                }
 
-                                // Determine if we're in development or production
                                 var baseCookieOptions = new CookieOptions
                                 {
-                                    HttpOnly = false,
-                                    Secure = true, // Only require HTTPS in production
+                                    HttpOnly = true,
+                                    Secure = true,
                                     SameSite = SameSiteMode.None,
-                                    Path = "/",
-                                    Domain = cookieSettings.Domain,
-                                    Expires = DateTime.UtcNow.AddMinutes(cookieSettings.ExpirationMinutes)
+                                    Path = "/"
                                 };
 
-                                // Update access token cookie
-                                context.Response.Cookies.Append("accessToken", newTokenDto.AccessToken, baseCookieOptions);
+                                var accessCookieOptions = new CookieOptions
+                                {
+                                    HttpOnly = false,
+                                    Secure = baseCookieOptions.Secure,
+                                    SameSite = baseCookieOptions.SameSite,
+                                    Path = baseCookieOptions.Path,
+                                    Expires = now.AddDays(4)
+                                };
+                                context.Response.Cookies.Append("accessToken", newTokenDto.AccessToken, accessCookieOptions);
 
-                                // Update refresh token cookie
-                                context.Response.Cookies.Append("refreshToken", newTokenDto.RefreshToken, baseCookieOptions);
+                                var refreshCookieOptions = new CookieOptions
+                                {
+                                    HttpOnly = baseCookieOptions.HttpOnly,
+                                    Secure = baseCookieOptions.Secure,
+                                    SameSite = baseCookieOptions.SameSite,
+                                    Path = baseCookieOptions.Path,
+                                    Expires = now.AddDays(7)
+                                };
+                                context.Response.Cookies.Append("refreshToken", newTokenDto.RefreshToken, refreshCookieOptions);
 
-                                _logger.LogInformation("Both tokens successfully refreshed automatically in cookies");
+                                _logger.LogInformation("[AutoTokenRefresh] Tokens successfully refreshed and cookies updated.");
                             }
+                        }
+                        else
+                        {
+                            _logger.LogInformation("[AutoTokenRefresh] Token is still valid; no refresh needed.");
                         }
                     }
                     catch (Exception ex)
                     {
-                        // If token parsing fails, let the request continue normally
-                        // The authorization will fail naturally if the token is invalid
-                        _logger.LogWarning($"Failed to parse or refresh token: {ex.Message}");
+                        _logger.LogWarning(ex, "[AutoTokenRefresh] Failed to parse or refresh token.");
                     }
+                }
+                else
+                {
+                    _logger.LogInformation("[AutoTokenRefresh] One or both tokens missing.");
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error in AutoTokenRefreshMiddleware");
-                // Don't block the request, let it continue
+                _logger.LogError(ex, "[AutoTokenRefresh] Unexpected error");
             }
 
             await _next(context);
         }
     }
-} 
+}

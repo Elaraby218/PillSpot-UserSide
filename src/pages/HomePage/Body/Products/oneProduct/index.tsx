@@ -122,6 +122,8 @@ const OneProduct = ({
     toast.success("Added to cart");
   };
 
+  //hello
+
   const handleCloseContextMenu = () => {
     setContextMenu(prev => ({ ...prev, visible: false }));
   };

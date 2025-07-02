@@ -67,7 +67,7 @@ const SearchByDistance: React.FC<SearchByDistanceProps> = ({ searchTerm: propSea
             UserLongitude: lng,
             PageNumber: 1,
             PageSize: 50,
-            MaxDistance : 50.0,
+
           },
         }
       )

@@ -47,7 +47,7 @@ const NotificationPreferencesTable = () => {
       {isLoading && <div>Loading...</div>}
       {isError && <div className="text-red-600">{errorMessage}</div>}
       {!isLoading && !isError && (
-        <div className="rounded-2xl shadow-lg bg-white overflow-hidden">
+        <div className="rounded-2xl shadow-lg bg-white overflow-hidden ">
           <div className="overflow-x-auto">
             <table className="min-w-full">
               <thead>

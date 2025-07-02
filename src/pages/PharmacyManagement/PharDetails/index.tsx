@@ -9,7 +9,7 @@ const PharManagemetDetails = ({ imgSrc, name, email, dataColor }: IProps) => {
   const nameEmailColor = dataColor ? dataColor : "text-white";
 
   return (
-    <div className="p-4">
+    <div className="p-4 hidden 2xl:block">
       <div className="flex items-center gap-3 sm:gap-5">
         <div className="avatar">
           <div className="w-16 sm:w-24 rounded-full">

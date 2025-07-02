@@ -21,8 +21,8 @@ const PERMISSIONS = [
 ];
 
 const ROLES = [
-  { label: "Pharmacy Manager", value: "pharmacy manager" },
-  { label: "Pharmacy Employee", value: "pharmacy employee" },
+  { label: "Pharmacy Manager", value: "pharmacymanager" },
+  { label: "Pharmacy Employee", value: "pharmacyemployee" },
 ];
 
 const SearchBar = ({ setSearchStaff }: Iprops) => {
@@ -63,7 +63,7 @@ const SearchBar = ({ setSearchStaff }: Iprops) => {
     };
     try {
       await axiosInstance.post(
-        "api/pharmacy-employees/SendRequest",
+        `api/pharmacy-employees/SendRequest/${curPharId}`,
         data,
         { withCredentials: true }
       );

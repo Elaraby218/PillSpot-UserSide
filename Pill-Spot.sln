@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back", "Back", "{11BF4459-C332-B9BD-164A-F44681F2EC0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pill-Spot", "Pill-Spot", "{F2168721-5EB4-FADC-1928-410AB2A85B16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PillSpot", "Back\Pill-Spot\PillSpot\PillSpot.csproj", "{52B43E92-000E-2B3D-A4B5-772775FB6500}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B43E92-000E-2B3D-A4B5-772775FB6500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B43E92-000E-2B3D-A4B5-772775FB6500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B43E92-000E-2B3D-A4B5-772775FB6500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B43E92-000E-2B3D-A4B5-772775FB6500}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2168721-5EB4-FADC-1928-410AB2A85B16} = {11BF4459-C332-B9BD-164A-F44681F2EC0B}
+		{52B43E92-000E-2B3D-A4B5-772775FB6500} = {F2168721-5EB4-FADC-1928-410AB2A85B16}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4A71F24-D835-4ED7-9061-DC592891FA48}
+	EndGlobalSection
+EndGlobal

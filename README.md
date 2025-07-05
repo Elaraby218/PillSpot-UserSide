@@ -1,12 +1,11 @@
-# 🏥 Pill-Spot
+# 🏥 Pill-Spot Frontend
 
-[![.NET](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/8.0)
 [![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-blue.svg)](https://www.typescriptlang.org/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0+-orange.svg)](https://www.mysql.com/)
+[![Vite](https://img.shields.io/badge/Vite-5.0.0-purple.svg)](https://vitejs.dev/)
 [![Status](https://img.shields.io/badge/Status-Graduation%20Project-brightgreen.svg)](https://github.com/Mohamed-AbdElmawla/Pill-Spot)
 
-> **A Location-Based Pharmacy Medicine Search Platform** - Find medicines in nearby pharmacies with real-time location services and comprehensive pharmacy management.
+> **A Location-Based Pharmacy Medicine Search Platform Frontend** - Modern React application for finding medicines in nearby pharmacies with real-time location services and comprehensive pharmacy management interface.
 
 ## 📋 Table of Contents
 
@@ -15,189 +14,174 @@
 - [Technology Stack](#-technology-stack)
 - [Architecture](#-architecture)
 - [Getting Started](#-getting-started)
-- [API Documentation](#-api-documentation)
-- [Security Features](#-security-features)
+- [Component Structure](#-component-structure)
+- [State Management](#-state-management)
 - [Performance Optimizations](#-performance-optimizations)
-- [Rate Limiting](#-rate-limiting)
 - [Testing](#-testing)
 - [Project Timeline](#-project-timeline)
 - [Team](#-team)
 
 ## 🎯 Overview
 
-Pill-Spot is a comprehensive web platform designed to bridge the gap between patients and pharmacies by providing real-time location-based medicine search capabilities. The platform enables users to find specific medicines in nearby pharmacies, view availability, and get directions to pharmacies. **Medicine prices are fixed and set by the system administrators.**
+Pill-Spot Frontend is a modern React application designed to provide an intuitive and responsive user interface for a location-based pharmacy medicine search platform. The application enables users to find specific medicines in nearby pharmacies, view availability, and get directions to pharmacies through an elegant and user-friendly interface.
 
 ### Key Benefits
 
-- **For Users**: Save time by finding medicines quickly and get directions to pharmacies
-- **For Pharmacies**: Increase visibility, manage inventory digitally, and streamline operations
-- **For Healthcare**: Improve medicine accessibility and reduce travel time for patients
+- **For Users**: Intuitive search interface with real-time results and interactive maps
+- **For Pharmacies**: Comprehensive management dashboard for inventory and staff
+- **For Healthcare**: Improved medicine accessibility through modern web interface
 
 ## ✨ Features
 
 ### 🔍 For End Users
-- **Smart Medicine Search**: Search by medicine name with autocomplete and filters
+- **Smart Medicine Search**: Advanced search with autocomplete and intelligent filters
 - **Location-Based Results**: GPS-powered pharmacy discovery with distance calculation
 - **Interactive Maps**: Visual pharmacy locations with directions using Google Maps
-- **Real-Time Availability**: Live stock information with fixed pricing
-- **User Authentication**: Secure registration and login with JWT tokens
-- **User Profiles**: Manage personal information and preferences
-- **Multi-language Support**: Internationalization with i18next
+- **Real-Time Availability**: Live stock information display with fixed pricing
+- **User Authentication**: Secure registration and login with JWT token management
+- **User Profiles**: Comprehensive profile management with preferences
+- **Multi-language Support**: Internationalization with i18next (English & Spanish)
+- **Responsive Design**: Mobile-first design that works on all devices
+- **Dark/Light Theme**: Customizable theme preferences
+- **Wishlist Management**: Save favorite medicines and pharmacies
+- **Order History**: Track previous orders and medications
 
 ### 🏪 For Pharmacy Owners
-- **Pharmacy Registration**: Multi-step onboarding with admin approval workflow
-- **Inventory Management**: Add, update, and manage medicine stock
-- **Staff Management**: Add employees with role-based permissions
-- **Pharmacy Dashboard**: View pharmacy information and basic analytics
+- **Pharmacy Registration**: Multi-step onboarding with progress tracking
+- **Inventory Management**: Intuitive interface for adding, updating, and managing medicine stock
+- **Staff Management**: Add employees with role-based permissions and management
+- **Pharmacy Dashboard**: Comprehensive analytics and information display
 - **Profile Management**: Update pharmacy details and contact information
+- **Order Management**: Track and manage incoming orders
+- **Analytics Dashboard**: View sales, inventory, and performance metrics
 
 ### 👨‍💼 For Administrators
-- **System Management**: User and pharmacy oversight
-- **Content Management**: Categories, products, and system settings
-- **Price Management**: Set and manage fixed medicine prices
-- **Approval Workflows**: Pharmacy and employee request processing
-- **User Management**: Manage system users and roles
+- **System Management**: User and pharmacy oversight with admin controls
+- **Content Management**: Categories, products, and system settings interface
+- **Price Management**: Set and manage fixed medicine prices through admin panel
+- **Approval Workflows**: Pharmacy and employee request processing interface
+- **User Management**: Manage system users and roles with detailed controls
 
 ## 🛠 Technology Stack
 
-### Backend
-- **Framework**: ASP.NET Core 8.0
-- **Database**: MySQL 8.0+ with spatial data support
-- **ORM**: Entity Framework Core 8.0
-- **Authentication**: JWT with refresh tokens
-- **Logging**: Serilog with structured logging
-- **API Documentation**: Swagger/OpenAPI
-- **Rate Limiting**: Built-in ASP.NET Core rate limiting
+### Frontend Framework
+- **React 18**: Latest React with concurrent features and hooks
+- **TypeScript 5.6.2**: Type-safe development with strict typing
+- **Vite 5.0**: Fast build tool and development server
 
-### Frontend
-- **Framework**: React 18 with TypeScript
-- **State Management**: Redux Toolkit
-- **UI Libraries**: Ant Design, Material-UI, Tailwind CSS
-- **Maps**: Google Maps API, Leaflet
-- **Internationalization**: React i18next
-- **Build Tool**: Vite
-- **Package Manager**: npm/yarn
+### State Management
+- **Redux Toolkit**: Modern Redux with simplified state management
+- **React Query**: Server state management and caching
+- **Zustand**: Lightweight state management for local state
 
-### DevOps & Tools
-- **Version Control**: Git
-- **Database**: MySQL with spatial extensions
-- **Development**: Visual Studio 2022 / VS Code
-- **API Testing**: Swagger UI, Postman
+### UI Libraries & Styling
+- **Ant Design**: Comprehensive UI component library
+- **Material-UI**: Material Design components
+- **Tailwind CSS**: Utility-first CSS framework
+- **Styled Components**: CSS-in-JS styling
+- **Framer Motion**: Advanced animations and transitions
+
+### Maps & Location
+- **Google Maps API**: Interactive maps and location services
+- **Leaflet**: Alternative mapping solution
+- **Geolocation API**: Browser-based location services
+
+### Development Tools
+- **ESLint**: Code linting and formatting
+- **Prettier**: Code formatting
+- **React DevTools**: Development debugging
+- **Vite**: Fast development and build tool
+
+### Internationalization
+- **React i18next**: Multi-language support
+- **Translation Management**: JSON-based translation files
 
 ## 🏗 Architecture
-
-### Backend Architecture (Clean Architecture)
-```
-Back/
-├── Pill-Spot/                    # Main API Project
-├── PillSpot.Presentation/        # API Controllers & Filters
-├── Service/                      # Business Logic Layer
-├── Service.Contracts/            # Service Interfaces
-├── Repository/                   # Data Access Layer
-├── Contracts/                    # Repository Interfaces
-├── Entities/                     # Domain Models & Configuration
-└── Shared/                       # DTOs & Request Features
-```
 
 ### Frontend Architecture
 ```
 Front/pill-spot/
 ├── src/
 │   ├── components/              # Reusable UI Components
+│   │   ├── animaged/           # Animated components
+│   │   ├── Block/              # Content blocks
+│   │   ├── ContactForm/        # Contact form components
+│   │   ├── ContentBlock/       # Content display blocks
+│   │   ├── ErrorMessage/       # Error handling components
+│   │   ├── Footer/             # Footer components
+│   │   ├── Header/             # Header and navigation
+│   │   ├── LoginModal/         # Authentication modals
+│   │   ├── MapModal/           # Map display components
+│   │   ├── MiddelBlock/        # Middle content blocks
+│   │   ├── Notification/       # Notification system
+│   │   ├── Result/             # Search results display
+│   │   ├── SearchMedicine/     # Medicine search components
+│   │   └── SignUpModel/        # Registration components
 │   ├── pages/                   # Page Components
+│   │   ├── HomePage/           # Home page components
+│   │   ├── Landing/            # Landing page
+│   │   ├── PharmacyManagement/ # Pharmacy admin interface
+│   │   ├── ProductPharmacySearch/ # Product search pages
+│   │   ├── ProductsPage/       # Product listing pages
+│   │   ├── RegisterPharmacy/   # Pharmacy registration
+│   │   ├── ResultPage/         # Search results page
+│   │   ├── SearchByDistance/   # Distance-based search
+│   │   └── UserSettings/       # User settings and profile
 │   ├── features/                # Feature-based Redux Slices
+│   │   ├── auth/               # Authentication features
+│   │   ├── HomePage/           # Home page features
+│   │   ├── NotificationHubService/ # Real-time notifications
+│   │   ├── Notifications/      # Notification management
+│   │   ├── Pharmacy/           # Pharmacy management features
+│   │   ├── Toasts/             # Toast notifications
+│   │   └── User/               # User management features
 │   ├── hooks/                   # Custom React Hooks
 │   ├── UI/                      # UI Components Library
+│   │   ├── Button/             # Button components
+│   │   ├── Container/          # Layout containers
+│   │   ├── Input/              # Input components
+│   │   ├── Rating/             # Rating components
+│   │   └── utils/              # UI utilities
 │   ├── layouts/                 # Layout Components
-│   └── Router/                  # Application Routing
+│   ├── Router/                  # Application Routing
+│   ├── content/                 # Static content and translations
+│   ├── locales/                 # Internationalization files
+│   └── styles/                  # Global styles
 ```
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- **.NET 8.0 SDK** or later
 - **Node.js 18+** and npm/yarn
-- **MySQL 8.0+** with spatial extensions
-- **Visual Studio 2022** or **VS Code**
+- **Modern web browser** with ES6+ support
 - **Google Maps API Key** (for map functionality)
 
-### Backend Setup
+### Frontend Setup
 
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Mohamed-AbdElmawla/Pill-Spot.git
-   cd Pill-Spot
+   cd Pill-Spot/Front/pill-spot
    ```
 
-2. **Configure Database**
+2. **Install Dependencies**
    ```bash
-   # Create MySQL database
-   CREATE DATABASE pillspot_db;
-   
-   # Update connection string in appsettings.json
-   ```
-
-3. **Install Dependencies**
-   ```bash
-   cd Back/Pill-Spot
-   dotnet restore
-   ```
-
-4. **Run Migrations**
-   ```bash
-   dotnet ef database update
-   ```
-
-5. **Configure Environment Variables**
-   ```json
-   {
-     "ConnectionStrings": {
-       "MySqlConnection": "Server=localhost;Database=pillspot_db;Uid=root;Pwd=your_password;"
-     },
-     "JwtSettings": {
-       "SecretKey": "your-secret-key-here",
-       "ValidIssuer": "https://localhost:7298",
-       "ValidAudience": "https://localhost:7298",
-       "Expires": "60"
-     },
-     "CorsSettings": {
-       "AllowedOrigins": ["http://localhost:3000", "https://localhost:3000"]
-     },
-     "RateLimiting": {
-       "GeneralLimit": 100,
-       "AuthenticationLimit": 10,
-       "SearchLimit": 30,
-       "UploadLimit": 20,
-       "WindowMinutes": 1
-     }
-   }
-   ```
-
-6. **Run the API**
-   ```bash
-   dotnet run
-   ```
-   API will be available at: `https://localhost:7298`
-
-### Frontend Setup
-
-1. **Install Dependencies**
-   ```bash
-   cd Front/pill-spot
    npm install
    # or
    yarn install
    ```
 
-2. **Configure Environment Variables**
+3. **Configure Environment Variables**
    Create `.env` file:
    ```env
-   VITE_API_BASE_URL=https://localhost:7298
+   VITE_API_BASE_URL=https://your-api-url.com
    VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
+   VITE_APP_NAME=Pill-Spot
+   VITE_APP_VERSION=1.0.0
    ```
 
-3. **Run Development Server**
+4. **Run Development Server**
    ```bash
    npm run dev
    # or
@@ -205,207 +189,174 @@ Front/pill-spot/
    ```
    Frontend will be available at: `http://localhost:3000`
 
-## 📚 API Documentation
+5. **Build for Production**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   ```
 
-### Authentication Endpoints
-- `POST /api/authentication` - User registration
-- `POST /api/authentication/login` - User login
-- `POST /api/authentication/logout` - User logout
-- `POST /api/authentication/refresh` - Refresh JWT token
+## 🧩 Component Structure
 
-### Pharmacy Endpoints
-- `GET /api/pharmacies` - Get all pharmacies
-- `GET /api/pharmacies/{id}` - Get pharmacy by ID
-- `POST /api/pharmacyrequests` - Submit pharmacy registration
-- `PUT /api/pharmacyrequests/{id}/approve` - Approve pharmacy request
+### Core Components
 
-### Medicine Search Endpoints
-- `GET /api/pharmacyproducts` - Search medicines in pharmacies
-- `GET /api/products` - Get all products
-- `GET /api/categories` - Get product categories
+#### Authentication Components
+- **LoginModal**: User login interface with validation
+- **SignUpModel**: User registration with multi-step form
+- **ContinueWith**: Social login options
 
-### User Management Endpoints
-- `GET /api/users/{userName}` - Get user profile
-- `PUT /api/users/{userName}` - Update user profile
-- `DELETE /api/users/{userName}` - Delete user account
+#### Search & Results Components
+- **SearchMedicine**: Advanced medicine search with filters
+- **Result**: Search results display with pharmacy cards
+- **ProductPharmacySearch**: Product-specific pharmacy search
+- **SearchByDistance**: Distance-based pharmacy discovery
 
-**Full API Documentation**: Visit `https://localhost:7298` when the API is running.
+#### Pharmacy Management Components
+- **PharmacyManagement**: Main pharmacy dashboard
+- **Inventory**: Inventory management interface
+- **StaffManagement**: Staff management and permissions
+- **OrdersManagement**: Order tracking and management
 
-## 🔒 Security Features
+#### User Interface Components
+- **Header**: Navigation and user menu
+- **Footer**: Site footer and links
+- **Notification**: Real-time notification system
+- **MapModal**: Interactive map display
 
-### Authentication & Authorization
-- **JWT Token Authentication**: Secure token-based authentication with refresh tokens
-- **Role-Based Access Control**: SuperAdmin, Admin, User, and Pharmacy roles
-- **Permission-Based Authorization**: Granular permissions for different operations
-- **Password Security**: ASP.NET Core Identity with secure password hashing
-- **Token Refresh**: Automatic token refresh mechanism with secure cookie storage
+### Page Components
 
-### CSRF Protection
-- **Built-in Anti-Forgery**: ASP.NET Core's built-in CSRF protection
-- **Token Validation**: Automatic CSRF token validation for state-changing operations
-- **Secure Headers**: X-CSRF-Token header implementation
-- **Cookie Security**: HttpOnly, Secure, and SameSite cookie policies
+#### Public Pages
+- **Landing**: Welcome page with feature overview
+- **HomePage**: Main application homepage
+- **ProductsPage**: Product catalog and search
+- **ResultPage**: Search results display
 
-### Data Protection
-- **Input Validation**: Comprehensive input validation and sanitization
-- **SQL Injection Prevention**: Entity Framework Core with parameterized queries
-- **XSS Protection**: Content Security Policy and input encoding
-- **File Upload Security**: File type validation and size restrictions
+#### User Pages
+- **UserSettings**: User profile and preferences
+- **UserPharmacies**: User's preferred pharmacies
+- **OrdersCart**: Shopping cart and order management
 
-### API Security
-- **Rate Limiting**: Multi-tier rate limiting for different endpoints
-- **CORS Configuration**: Strict CORS policy with allowed origins
-- **HTTPS Enforcement**: Automatic HTTPS redirection in production
-- **Request Validation**: Model validation and custom validation filters
+#### Admin Pages
+- **PharmacyManagement**: Comprehensive admin dashboard
+- **RegisterPharmacy**: Pharmacy registration workflow
+- **tempAdmin**: Temporary admin interface
+
+## 🔄 State Management
+
+### Redux Toolkit Slices
+
+#### Authentication
+- **authSlice**: User authentication state
+- **authLoginSlice**: Login form state
+- **authServices**: Authentication API services
+
+#### Pharmacy Management
+- **PharmacyRegisterSlice**: Pharmacy registration state
+- **GetUserPharmcsSlice**: User pharmacy data
+- **AddInventoryProductSlice**: Inventory management state
+
+#### Notifications
+- **notificationSlice**: Notification state management
+- **toastSlice**: Toast notification state
+
+#### User Management
+- **UserSlice**: User profile and preferences
+- **UserServices**: User-related API services
+
+### Custom Hooks
+
+- **useNotificationData**: Notification data management
+- **useNotificationSignalR**: Real-time notification handling
+- **useUnreadCount**: Unread notification counting
+- **useProducts**: Product data management
+- **GetLocation**: Geolocation services
 
 ## ⚡ Performance Optimizations
 
-### Database Optimizations
-- **Spatial Indexing**: MySQL spatial indexes for location-based queries
-- **Query Optimization**: Efficient LINQ queries with proper includes
-- **Pagination**: Server-side pagination for large datasets
-- **Soft Deletes**: Logical deletion with query filters
-- **Database Indexing**: Strategic indexes on frequently queried columns
+### Code Splitting & Lazy Loading
+- **Dynamic Imports**: Route-based code splitting
+- **Component Lazy Loading**: On-demand component loading
+- **Bundle Optimization**: Vite build optimization
+
+### State Management Optimizations
+- **Selective Re-rendering**: Optimized Redux state updates
+- **Memoization**: React.memo and useMemo for expensive operations
+- **Debounced Search**: Optimized search input handling
+
+### Image & Asset Optimization
+- **Image Compression**: Optimized image loading
+- **Lazy Loading**: Images load on demand
+- **SVG Optimization**: Optimized SVG icons and graphics
 
 ### Caching Strategy
-- **Memory Caching**: In-memory caching for frequently accessed data
-- **Query Result Caching**: Cached database query results
-- **Rate Limit Caching**: Efficient rate limiting with memory cache
-- **Session Management**: Optimized session handling
+- **Browser Caching**: Static asset caching
+- **API Response Caching**: React Query caching
+- **Local Storage**: User preferences and session data
 
-### Frontend Optimizations
-- **Code Splitting**: Dynamic imports for better loading performance
-- **Bundle Optimization**: Vite build optimization
-- **Image Optimization**: Compressed images and lazy loading
-- **State Management**: Efficient Redux state updates
-
-### API Optimizations
-- **Async/Await**: Non-blocking asynchronous operations
-- **Connection Pooling**: Database connection pooling
-- **Response Compression**: Gzip compression for API responses
-- **Efficient Serialization**: Optimized JSON serialization
-
-## 🚦 Rate Limiting
-
-### Rate Limit Policies
-
-| Policy | Limit | Window | Description |
-|--------|-------|--------|-------------|
-| **GlobalPolicy** | 100 requests | 1 minute | General API access |
-| **AuthenticationPolicy** | 10 requests | 1 minute | Login/Register endpoints |
-| **SearchPolicy** | 30 requests | 1 minute | Search and query endpoints |
-| **UploadPolicy** | 20 requests | 1 minute | File upload endpoints |
-| **CsrfTokenPolicy** | 100 requests | 1 minute | CSRF token generation |
-
-### Rate Limit Implementation
-- **Sliding Window**: For general API access
-- **Token Bucket**: For authentication endpoints
-- **Fixed Window**: For search and upload operations
-- **Adaptive Window**: For CSRF token generation
-
-### Rate Limit Response
-```json
-{
-  "error": "Too many requests. Please try again later.",
-  "retryAfter": 60
-}
-```
+### Bundle Optimization
+- **Tree Shaking**: Unused code elimination
+- **Minification**: Code and asset compression
+- **Gzip Compression**: Response compression
 
 ## 🧪 Testing
 
 ### Testing Environment
-- **API Testing**: Postman for endpoint testing and validation
-- **Database Testing**: MySQL Workbench for database operations
-- **Frontend Testing**: Browser developer tools and React DevTools
-- **Integration Testing**: Manual testing of complete user workflows
+- **Browser Testing**: Cross-browser compatibility testing
+- **React DevTools**: Component debugging and state inspection
+- **Performance Testing**: Lighthouse and Core Web Vitals
+- **User Experience Testing**: Manual testing of user workflows
 
 ### Test Coverage Areas
-- **Authentication Flow**: Login, registration, token refresh
-- **API Endpoints**: All CRUD operations and business logic
-- **Database Operations**: Query performance and data integrity
-- **Frontend Components**: UI interactions and state management
-- **Security Features**: Authorization and validation
+- **Component Rendering**: UI component functionality
+- **User Interactions**: Form submissions and navigation
+- **State Management**: Redux state updates and persistence
+- **API Integration**: Frontend-backend communication
+- **Responsive Design**: Mobile and desktop compatibility
 
 ### Testing Tools
-- **Postman Collections**: Organized API test suites
-- **Swagger UI**: Interactive API documentation and testing
-- **Browser DevTools**: Frontend debugging and performance analysis
-- **MySQL Workbench**: Database query testing and optimization
+- **React DevTools**: Component debugging and state inspection
+- **Browser DevTools**: Performance analysis and debugging
+- **Lighthouse**: Performance and accessibility testing
+- **Manual Testing**: User experience validation
 
 ## 📅 Project Timeline
 
 ### Phase 1: Foundation (Completed)
 - **Duration**: 2-3 months
 - **Achievements**:
-  - ✅ Project architecture setup
-  - ✅ Database design and implementation
-  - ✅ Basic authentication system
-  - ✅ Core API development
-  - ✅ Frontend foundation
+  - ✅ React project setup with TypeScript
+  - ✅ Component architecture design
+  - ✅ Basic routing and navigation
+  - ✅ UI component library setup
+  - ✅ State management foundation
 
 ### Phase 2: Core Features (Completed)
 - **Duration**: 2-3 months
-- **Achievements**:
-  - ✅ User management system
-  - ✅ Pharmacy registration and management
+  - ✅ User authentication interface
   - ✅ Medicine search functionality
-  - ✅ Location-based services
-  - ✅ Admin dashboard
-  - ✅ Fixed pricing system
+  - ✅ Pharmacy management dashboard
+  - ✅ Interactive maps integration
+  - ✅ Multi-language support
+  - ✅ Responsive design implementation
 
 ### Phase 3: Advanced Features (Completed)
 - **Duration**: 2-3 months
-- **Achievements**:
-  - ✅ Security implementation
+  - ✅ Real-time notifications
   - ✅ Performance optimizations
-  - ✅ Rate limiting
-  - ✅ Multi-language support
-  - ✅ Responsive design
+  - ✅ Advanced search filters
+  - ✅ User profile management
+  - ✅ Admin dashboard features
 
 ### Future Enhancements (Planned)
-- **Mobile Application**: Native iOS/Android apps
-- **AI Integration**: Medicine recommendation system
-- **Telemedicine**: Doctor consultation features
-- **Advanced Analytics**: Comprehensive reporting and insights
-
-## 🗄 Database Schema
-
-### Core Entities
-
-```sql
--- Users and Authentication
-Users (Id, UserName, Email, PhoneNumber, ProfilePictureUrl, ...)
-AspNetRoles (Id, Name, NormalizedName)
-AspNetUserRoles (UserId, RoleId)
-
--- Pharmacy Management
-Pharmacies (PharmacyId, Name, LocationId, LicenseId, ContactNumber, ...)
-PharmacyRequests (RequestId, UserId, Name, Status, ...)
-PharmacyEmployees (EmployeeId, PharmacyId, UserId, ...)
-
--- Product Management
-Products (ProductId, Name, Description, Price, SubCategoryId, ...)
-Categories (CategoryId, Name)
-SubCategories (SubCategoryId, Name, CategoryId)
-
--- Inventory Management
-PharmacyProducts (PharmacyId, ProductId, Quantity, IsAvailable, ...)
-
--- Location and Spatial Data
-Locations (LocationId, Latitude, Longitude, AdditionalInfo, CityId, ...)
-Cities (CityId, Name, GovernmentId)
-Governments (GovernmentId, Name)
-```
-
-### Spatial Features
-- Geographic coordinates for pharmacy locations
-- Distance calculations using MySQL spatial functions
-- Location-based queries and filtering
+- **Progressive Web App**: PWA features for mobile experience
+- **Advanced Animations**: Enhanced user experience with animations
+- **Offline Support**: Offline functionality for critical features
+- **Advanced Analytics**: User behavior tracking and analytics
 
 ## 👥 Team
 
 ### 🎓 Students
-- **[Mohamed AbdElmawla](https://github.com/Mohamed-AbdElmawla)** - ACPC Finalist | Software Engineer | Codeforces Expert | Problem Solving Coach | .NET & C# Developer
+- **[Mohamed AbdElmawla](https://github.com/Mohamed-AbdElmawla)** - ACPC Finalist | Software Engineer | Codeforces Expert | Problem Solving Coach | React & TypeScript Developer
 - **[Mohamed Ramadan Elaraby](https://github.com/Elaraby218)** - Software Engineering Student
 - **[Khaled Ibrahem](https://github.com/uukh22)** - Computer Science Student
 - **[Shahd Medhat](https://github.com/shahdmedhat35)** - Software Engineering Student
@@ -422,9 +373,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **ASP.NET Core Team** for the excellent framework
 - **React Team** for the powerful frontend library
-- **MySQL Team** for spatial data support
+- **Vite Team** for the excellent build tool
+- **Ant Design Team** for the comprehensive UI library
 - **Open Source Community** for various libraries and tools
 - **Assiut University** for academic support and guidance
 

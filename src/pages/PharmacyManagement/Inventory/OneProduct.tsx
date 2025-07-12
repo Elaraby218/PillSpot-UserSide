@@ -44,7 +44,7 @@ const OneProduct: React.FC<OneProductProps> = ({ medicine }) => {
     console.log({productId:medicine.productId,pharmacyId:PharmacyId,quantity:quantity})
     const fetchData = async () => {
       const response = await axiosInstance
-            .post("api/pharmacyproducts" , {productId:medicine.productId,pharmacyId:PharmacyId,quantity:quantity});
+            .post("api/pharmacyproducts" , {productId:medicine.productId,PharmacyId:PharmacyId,quantity:quantity});
         return response.data;
     };
 

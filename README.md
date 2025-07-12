@@ -379,12 +379,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Open Source Community** for various libraries and tools
 - **Assiut University** for academic support and guidance
 
-## 📞 Support
-
-- **Repository**: [https://github.com/Mohamed-AbdElmawla/Pill-Spot](https://github.com/Mohamed-AbdElmawla/Pill-Spot)
-- **Issues**: [GitHub Issues](https://github.com/Mohamed-AbdElmawla/Pill-Spot/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Mohamed-AbdElmawla/Pill-Spot/discussions)
-
 ---
 
 <div align="center">
